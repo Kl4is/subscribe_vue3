@@ -1,30 +1,31 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <main class="font-body min-h-screen min-w-screen sm:bg-charcoal-gray sm:flex sm:justify-center sm:items-center">
+    <Success
+      v-if="email"
+      @dismissed="email = null"
+      :email="email"
+    />
+    <Subscribe 
+      v-else
+      @subscribed="(v) => (email = v)"
+    />
+  </main>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+  import Subscribe from "@/components/Subscribe";
+  import Success from '@/components/Success'
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+  export default{
+    name: 'App',
+    components: {
+      Subscribe,
+      Success,
+    },
+    data(){
+      return{
+        email: null,
+      };
+    },
+  };
+</script>
