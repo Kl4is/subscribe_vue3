@@ -1,5 +1,5 @@
 # Task from frontend mentor
-
+Live site URL: [Click here](https://kl4is.github.io/subscribe_vue3/)
 ## Project setup
 ```
 npm install
